@@ -8,12 +8,12 @@
 
 import UIKit
 import RealmSwift
-import  UserNotifications
+import UserNotifications
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
-    @IBOutlet weak var searchCategoryTextField: UITextField!
     
+    @IBOutlet weak var categorySearchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     let realm = try! Realm()
@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categorySearchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -42,7 +43,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if allTasks.count != 0 {
                 task.id = allTasks.max(ofProperty: "id")! + 1
             }
-            
             inputViewController.task = task
         }
     }
@@ -95,6 +95,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
-
+    
+    func searchCategory(searchText: String) {
+        let resultArray = taskArray
+        if searchText != "" {
+            taskArray = try! Realm().objects(Task.self).filter("category CONTAINS %@", searchText)
+        } else {
+            taskArray = resultArray
+            taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchCategory(searchText: searchText)
+    }
 }
 

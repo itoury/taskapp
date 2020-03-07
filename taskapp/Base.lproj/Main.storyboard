@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rg1-3o-Q7G">
-                                <rect key="frame" x="0.0" y="173" width="414" height="689"/>
+                                <rect key="frame" x="0.0" y="195" width="414" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RDk-DB-T8P">
@@ -35,24 +35,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ka5-5L-ExM">
-                                <rect key="frame" x="10" y="129" width="394" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YIX-AL-31f">
+                                <rect key="frame" x="0.0" y="129" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ka5-5L-ExM" firstAttribute="top" secondItem="hBc-I2-328" secondAttribute="bottom" constant="10" id="1UA-vu-LoN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ka5-5L-ExM" secondAttribute="trailing" constant="10" id="8NQ-7d-KHm"/>
-                            <constraint firstItem="rg1-3o-Q7G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ChY-dG-w4b"/>
+                            <constraint firstItem="rg1-3o-Q7G" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9hs-1C-pCm"/>
                             <constraint firstItem="hBc-I2-328" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="EeY-ta-cFP"/>
+                            <constraint firstItem="rg1-3o-Q7G" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Fmk-9k-mEe"/>
                             <constraint firstItem="hBc-I2-328" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="KE7-N9-TyP"/>
-                            <constraint firstItem="rg1-3o-Q7G" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XrC-y4-Wwj"/>
-                            <constraint firstItem="rg1-3o-Q7G" firstAttribute="top" secondItem="Ka5-5L-ExM" secondAttribute="bottom" constant="10" id="aux-vt-CNl"/>
+                            <constraint firstItem="YIX-AL-31f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NaC-rc-O5X"/>
+                            <constraint firstItem="rg1-3o-Q7G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aAi-dR-hXq"/>
+                            <constraint firstItem="YIX-AL-31f" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dOX-Io-tiA"/>
+                            <constraint firstItem="rg1-3o-Q7G" firstAttribute="top" secondItem="YIX-AL-31f" secondAttribute="bottom" constant="10" id="jRv-xd-sUl"/>
+                            <constraint firstItem="YIX-AL-31f" firstAttribute="top" secondItem="hBc-I2-328" secondAttribute="bottom" constant="10" id="p1z-FC-Cye"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hBc-I2-328" secondAttribute="trailing" constant="10" id="rqC-jg-zAO"/>
-                            <constraint firstItem="rg1-3o-Q7G" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vP6-gR-3JC"/>
-                            <constraint firstItem="Ka5-5L-ExM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="y6C-a0-ew0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -64,7 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchCategoryTextField" destination="Ka5-5L-ExM" id="ylo-6E-ean"/>
+                        <outlet property="categorySearchBar" destination="YIX-AL-31f" id="M56-KU-ciH"/>
                         <outlet property="tableView" destination="rg1-3o-Q7G" id="v1X-1A-HlY"/>
                         <segue destination="Fqz-u8-JHh" kind="show" identifier="cellSegue" id="RfG-ib-hVT"/>
                     </connections>
