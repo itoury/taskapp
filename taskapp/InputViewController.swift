@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 class InputViewController: UIViewController {
 
@@ -40,9 +41,13 @@ class InputViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     func setNotification(task: Task) {
             let content = UNMutableNotificationContent()
-            // タイトルと内容を設定(中身がない場合メッセージ無しで音だけの通知になるので「(xxなし)」を表示する)
+            
             if task.title == "" {
                 content.title = "(タイトルなし)"
             } else {
@@ -77,13 +82,7 @@ class InputViewController: UIViewController {
                     print("---------------/")
                 }
             }
-        } // --- ここまで追加 ---
-
-    
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
+        }
     
     
 }
