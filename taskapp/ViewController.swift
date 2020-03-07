@@ -12,6 +12,8 @@ import  UserNotifications
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var searchCategoryTextField: UITextField!
+    
     @IBOutlet weak var tableView: UITableView!
     
     let realm = try! Realm()
