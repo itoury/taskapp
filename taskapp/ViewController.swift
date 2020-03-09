@@ -97,11 +97,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func searchCategory(searchText: String) {
-        let resultArray = taskArray
         if searchText != "" {
             taskArray = try! Realm().objects(Task.self).filter("category CONTAINS %@", searchText)
         } else {
-            taskArray = resultArray
             taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
         }
         tableView.reloadData()
